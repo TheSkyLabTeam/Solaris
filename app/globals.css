@@ -2,26 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-black 
+}
+
+/* Oculta la barra de desplazamiento para Chrome, Safari y Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Oculta la barra de desplazamiento para IE, Edge y Firefox */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.rdp-vhidden {
+  @apply hidden;
+}
+
+div.rdp-caption_dropdowns{
+  @apply flex gap-5 w-full
+}
+
+select.rdp-dropdown {
+  @apply bg-black p-1 rounded
+}
+
+ 
+/*Landing styles*/
+
+#header {
+  background-image: url(./assets/Imgs/image-4-_1_.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+.headerTitlesContainer {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center
+}
+
+.lineMask {
+  overflow: hidden;
+}
+
+/*Dashboard*/
+
+.sectionDashboard {
+  @apply flex flex-col w-full h-[100vh] bg-black 
+}
+
+.principalChartButton {
+  @apply px-4 py-1 border border-white rounded-full text-white text-sm h-fit
+}
+
+#bannerMR {
+  width: 90%;
+  height: 50%;
+  padding-top: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://www.nasa.gov/wp-content/uploads/2022/04/halleffectinplasmas.particles-optimized-50pctspeed.gif');
 }
