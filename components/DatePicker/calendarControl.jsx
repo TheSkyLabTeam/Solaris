@@ -14,14 +14,14 @@ function CalendarControl({
   ...props
 }) {
 
-  const from = new Date(2022, 9, 1);
-  const to = new Date(2022, 11, 31);
+  const from = new Date(2022, 1, 1);
+  const to = new Date(2023, 1, 7);
 
   return (
     (<DayPicker
       captionLayout="dropdown" 
       fromYear={2022} 
-      toYear={2022}
+      toYear={2023}
       defaultMonth={from}
       disabled={{ before: from, after: to }}
       showOutsideDays={showOutsideDays}

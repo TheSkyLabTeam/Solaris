@@ -35,7 +35,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center bg-background">
       <MainNavbar/>
       <section id="headerContainer" className="w-[100vw] h-[100vh] flex justify-center place-content-baseline mb-24">
-        <motion.div id="header" className=" h-[100vh] flex place-items-end px-10 rounded-xl" style={{width: headerWidth}}>
+        <motion.div id="header" className=" h-[100vh] flex place-items-end px-4 md:px-10 rounded-xl" style={{width: headerWidth}}>
           <div className="headerTitlesContainer z-10">
             <h5 className='relative text-base md:text-[1.5vw] text-[#FFB950] font-normal w-fit md:w-[30vw] md:-mt-10'>The best way to understand the magnetic reconnection of the sun.</h5>
             <h1 className='text-[15vw] md:text-[10vw] font-semibold text-[#FFB950] h-min md:-mt-6'>SOLARIS</h1>
@@ -44,7 +44,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <motion.div className="flex flex-col w-full h-[90vh] bg-black md:px-28" id="description">
+      <motion.div className="flex flex-col w-full h-fit md:h-[90vh] bg-black px-8 md:px-16" id="description">
         <h1 className="text-[#D8D9C5] text-3xl md:text-5xl font-semibold">MAGNETIC <br/> RECONECTION?</h1>
         <p className="text-[#9C8F80] mt-10">
           Magnetic reconnection in the context of the Sun refers to the process in which magnetic field lines in the solar atmosphere, 
@@ -58,7 +58,7 @@ export default function Home() {
           o coronal mass ejections, which are massive ejections of solar material into space, and when these CMEs impact Earth, they can disrupt conditions in the Earth&apos;s magnetosphere and cause geomagnetic storms.
         </p>
         
-        <div id="bannerMR" className="pt-10"></div>
+        <div id="bannerMR" className="mt-4"></div>
         <p className="text-sm font-thin text-[#D8D9C5]">Credits: Tom Bridgman/NASA’s Scientific Visualization Studio</p>
 
       </motion.div>

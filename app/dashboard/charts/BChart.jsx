@@ -19,7 +19,7 @@ function BChart({BData, selectedGraph}) {
             fill: false,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            borderWidth: 1.5,
+            borderWidth: .5,
             pointRadius: 0,
         },
         'BX': {
@@ -28,7 +28,7 @@ function BChart({BData, selectedGraph}) {
             fill: false,
             backgroundColor: 'rgb(75, 192, 192)',
             borderColor: 'rgb(75, 192, 192)',
-            borderWidth: 1.5,
+            borderWidth: .5,
             pointRadius: 0,
         },
         'BY': {
@@ -37,7 +37,7 @@ function BChart({BData, selectedGraph}) {
             fill: false,
             backgroundColor: 'rgb(255, 205, 86)',
             borderColor: 'rgba(255, 205, 86)',
-            borderWidth: 1.5,
+            borderWidth: .5,
             pointRadius: 0,
         },
         'B': {
@@ -46,7 +46,7 @@ function BChart({BData, selectedGraph}) {
             fill: false,
             backgroundColor: 'rgb(54, 162, 235)',
             borderColor: 'rgba(54, 162, 235)',
-            borderWidth: 1.5,
+            borderWidth: .5,
             pointRadius: 0,
         }
     };

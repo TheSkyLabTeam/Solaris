@@ -20,10 +20,6 @@ import {
 
 const boptions = [
     {
-      value: "all",
-      label: "All",
-    },
-    {
       value: "b",
       label: "B",
     },
@@ -38,6 +34,10 @@ const boptions = [
     {
       value: "bz",
       label: "BZ",
+    },
+    {
+      value: "all",
+      label: "All",
     },
 ]
 
