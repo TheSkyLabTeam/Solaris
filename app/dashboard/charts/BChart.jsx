@@ -11,38 +11,49 @@ import 'chartjs-adapter-moment';
 
 ChartJs.register(LineElement, CategoryScale, PointElement, LinearScale, TimeScale);
 
-function BChart({BData}) {
+function BChart({BData, selectedGraph}) {
+    const datasets = {
+        'BZ': {
+            label: 'BZ',
+            data: BData.map(item => item.BZ),
+            fill: false,
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+        },
+        'BX': {
+            label: 'BX',
+            data: BData.map(item => item.BX),
+            fill: false,
+            backgroundColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(75, 192, 192)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+        },
+        'BY': {
+            label: 'BY',
+            data: BData.map(item => item.BY),
+            fill: false,
+            backgroundColor: 'rgb(255, 205, 86)',
+            borderColor: 'rgba(255, 205, 86)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+        },
+        'B': {
+            label: 'B',
+            data: BData.map(item => item.B),
+            fill: false,
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgba(54, 162, 235)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+        }
+    };
+
     const data = Array.isArray(BData) ? {
         labels: BData.map(item => item.datetime),
-        datasets: [
-            {
-                label: 'BZ',
-                data: BData.map(item => item.BZ),
-                fill: false,
-                backgroundColor: 'rgb(75, 192, 192)',
-                borderColor: 'rgba(75, 192, 192)',
-                borderWidth: 2,
-                pointRadius: 0,
-            },
-            {
-                label: 'BX',
-                data: BData.map(item => item.BX),
-                fill: false,
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgba(255, 99, 132)',
-                borderWidth: 2,
-                pointRadius: 0,
-            },
-            {
-                label: 'BY',
-                data: BData.map(item => item.BY),
-                fill: false,
-                backgroundColor: 'rgb(255, 205, 86)',
-                borderColor: 'rgba(255, 205, 86)',
-                borderWidth: 2,
-                pointRadius: 0,
-            },
-        ],
+        datasets: selectedGraph === 'ALL' ? Object.values(datasets) : [datasets[selectedGraph]],
     } : {};
 
     const options = {
@@ -59,7 +70,17 @@ function BChart({BData}) {
                 ticks: {
                     autoSkip: true,
                     maxTicksLimit: 10
+                },
+                grid:{
+                    display:true,
+                    color:'rgba(156, 143, 128,0.2)'
                 }
+            },
+            y:{
+               grid:{
+                   display:true,
+                   color:'rgba(156, 143, 128,0.2)'
+               }
             }
         },
         plugins: {

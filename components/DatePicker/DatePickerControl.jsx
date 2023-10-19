@@ -28,7 +28,7 @@ export function DatePickerControl({ mode, onDateChange }) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-[280px] justify-start text-left font-normal rounded-full text-[#D8D9C5]",
+            "w-[280px] justify-start text-left font-normal border-outline rounded-full text-[#D8D9C5]",
             !date && "text-muted-foreground"
           )}
         >

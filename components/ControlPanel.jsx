@@ -20,9 +20,9 @@ const ControlPanel = ({ onStartDateChange, onEndDateChange }) => {
   console.log(startDate, endDate);
 
   return (
-    <div id="controlPanel" className="w-full h-fit flex justify-between">
+    <div id="controlPanel" className="w-full h-fit flex flex-col md:flex-row justify-between">
         <div className="controlContainer text-[#D8D9C5] font-semibold text-3xl">PICK YOUR DATE RANGE</div>
-        <div id="datePickersContainer" className="controlContainer flex w-fit gap-4">
+        <div id="datePickersContainer" className="controlContainer flex w-full md:w-fit pt-4 md:pt-0 gap-4">
             <DatePickerControl mode="start" onDateChange={handleStartDateChange}/>
             <DatePickerControl mode="end" onDateChange={handleEndDateChange} />
         </div>

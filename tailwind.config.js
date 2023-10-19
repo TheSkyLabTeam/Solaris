@@ -17,7 +17,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        
+        'background': '#0C0A08',
+        'onBackground': '#EAE1D9',
+        'outline': '#9C8F80',
       },
       borderRadius: {
         lg: "var(--radius)",

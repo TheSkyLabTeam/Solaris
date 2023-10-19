@@ -38,10 +38,6 @@ select.rdp-dropdown {
   background-position: center;
 }
 
-.headerTitlesContainer {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center
-}
-
 .lineMask {
   overflow: hidden;
 }
@@ -49,7 +45,7 @@ select.rdp-dropdown {
 /*Dashboard*/
 
 .sectionDashboard {
-  @apply flex flex-col w-full h-[100vh] bg-black 
+  @apply flex flex-col w-full md:h-[100vh] bg-black 
 }
 
 .principalChartButton {
@@ -63,4 +59,14 @@ select.rdp-dropdown {
   background-size: cover;
   background-position: center;
   background-image: url('https://www.nasa.gov/wp-content/uploads/2022/04/halleffectinplasmas.particles-optimized-50pctspeed.gif');
+}
+
+#principalChartContainer canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.displayCharAndDescription canvas{
+  width: 100% !important;
+
 }

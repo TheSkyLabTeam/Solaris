@@ -13,6 +13,21 @@ function MRChart({ datos, fechaInicio, fechaFin }) {
 
     const options = {
         responsive: true,
+        scales: {
+            x: {
+                grid: {
+                    display: true,
+                    color:'rgba(156, 143, 128,0.2)'
+                    
+                }
+            },
+            y:{
+               grid:{
+                display: true,
+                color:'rgba(156, 143, 128,0.2)'
+               }
+            }
+        },
     }
 
     function filtrarTrues(datos, fechaInicio, fechaFin) {

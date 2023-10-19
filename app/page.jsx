@@ -11,8 +11,8 @@ export default function Home() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
-  })
+    offset: ["start start", "end end"]
+  });
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -29,39 +29,33 @@ export default function Home() {
   }, [])
 
   //Animations
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const sectionY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const headerWidth = useTransform(scrollYProgress, [0, 0.2], ["100vw", "95vw"]);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-background">
       <MainNavbar/>
-      <motion.div id="header" ref={ref} className="w-full h-[100vh] flex" style={{ y: headerY }}>
-        <div className="nasaSpaceApp absolute bottom-0 right-0 bg-white w-24 h-24 flex justify-center place-items-center">
-          <img src="/spaceapps.png" className="w-20 h-20" />
-        </div>
-        <div className="headerTitlesContainer">
-          <div id="semiLogoContainer" className='flex place-items-center gap-2'>
-            <img src="/SemiLogo.png" alt='Logo Semillero UTB' className='w-12 h-auto'/>
-            <h6 className='text-[#D8D9C5] font-normal'>Presents:</h6>
+      <section id="headerContainer" className="w-[100vw] h-[100vh] flex justify-center place-content-baseline mb-24">
+        <motion.div id="header" className=" h-[100vh] flex place-items-end px-10 rounded-xl" style={{width: headerWidth}}>
+          <div className="headerTitlesContainer z-10">
+            <h5 className='relative text-base md:text-[1.5vw] text-[#FFB950] font-normal w-fit md:w-[30vw] md:-mt-10'>The best way to understand the magnetic reconnection of the sun.</h5>
+            <h1 className='text-[15vw] md:text-[10vw] font-semibold text-[#FFB950] h-min md:-mt-6'>SOLARIS</h1>
+            
           </div>
-            <h1 className='text-[10vw] font-semibold text-[#D8D9C5] h-min -mt-6'>SOLARIS</h1>
+        </motion.div>
+      </section>
 
-          <h5 className='text-[1.5vw] text-center text-[#D8D9C5] font-normal w-[30vw] -mt-10'>The best way to understand the magnetic reconnection of the sun.</h5>
-          <div id="startButton" className='bg-[#D8D9C5] mt-10 px-4 py-2 rounded-full text-sm font-medium'><Link href="/dashboard">INICIATE SOLARIS</Link></div>
-        </div>
-      </motion.div>
-      <motion.div className="section w-full h-[90vh] bg-black pt-10 px-10" id="description" style={{ y: sectionY}}>
-        <h1 className="text-[#D8D9C5] text-5xl font-semibold">MAGNETIC <br/> RECONECTION?</h1>
+      <motion.div className="flex flex-col w-full h-[90vh] bg-black md:px-28" id="description">
+        <h1 className="text-[#D8D9C5] text-3xl md:text-5xl font-semibold">MAGNETIC <br/> RECONECTION?</h1>
         <p className="text-[#9C8F80] mt-10">
           Magnetic reconnection in the context of the Sun refers to the process in which magnetic field lines in the solar atmosphere, 
           especially in the solar corona, change their configuration. This occurs when initially separated magnetic field lines approach 
           and join together. When these lines reconnect, they release a large amount of energy in the form of solar flares and coronal mass ejections (CMEs).
 
         </p>
-        <p className="text-[#9C8F80] mt-10">
+        <p className="text-[#9C8F80] mt-10 mb-8">
           In the Sun, magnetic reconnection is a significant cause of explosive solar events. During reconnection, the stored magnetic energy is converted into thermal 
           and kinetic energy, resulting in solar flares that can affect communications on Earth and satellite navigation systems, among other things. It can also lead t
-          o coronal mass ejections, which are massive ejections of solar material into space, and when these CMEs impact Earth, they can disrupt conditions in the Earth's magnetosphere and cause geomagnetic storms.
+          o coronal mass ejections, which are massive ejections of solar material into space, and when these CMEs impact Earth, they can disrupt conditions in the Earth&apos;s magnetosphere and cause geomagnetic storms.
         </p>
         
         <div id="bannerMR" className="pt-10"></div>

@@ -48,6 +48,16 @@ function DChart({BData}) {
                 ticks: {
                     autoSkip: true,
                     maxTicksLimit: 10 // Ajusta este número a tus necesidades
+                },
+                grid: {
+                    display: true,
+                    color:'rgba(156, 143, 128,0.2)'
+                }
+            },
+            y: {
+                grid: {
+                    display: true,
+                    color:'rgba(156, 143, 128,0.2)'
                 }
             }
         }
