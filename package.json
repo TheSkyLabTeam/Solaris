@@ -25,11 +25,11 @@
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.284.0",
     "moment": "^2.29.4",
-    "next": "13.5.4",
-    "react": "^18",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-day-picker": "^8.8.2",
-    "react-dom": "^18",
+    "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -37,7 +37,7 @@
     "@svgr/webpack": "^8.1.0",
     "autoprefixer": "^10",
     "eslint": "^8",
-    "eslint-config-next": "13.5.4",
+    "eslint-config-next": "^14.0.4",
     "postcss": "^8",
     "tailwindcss": "^3"
   }
