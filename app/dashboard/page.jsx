@@ -1,9 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect} from "react"
 import MainNavbar from "@/components/MainNavbar"
 import ControlPanel from "@/components/ControlPanel"
-import sunData from '../assets/Data/data.json'
 import BChart from "./charts/BChart"
 import SChart from "./charts/speedChart"
 import TChart from "./charts/TemperatureChart"
@@ -16,6 +15,21 @@ const Page = () => {
     const [startDate, setStartDate] = useState('2022-10-02');
     const [endDate, setEndDate] = useState('2022-10-10');
     const [bSelection, setBSelection] = useState('B'); 
+    const [sunData, setSunData] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(json => setSunData(json))
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [startDate, endDate]);
     
     let fixedBSelection = bSelection.toUpperCase();
 
