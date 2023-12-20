@@ -90,6 +90,7 @@ const Page = () => {
                     </div>
                     <div id="principalChart" className="w-[100%] md:h-4/5">
                         <BChart BData={filtrarPorFecha(sunData, startDate, endDate)} selectedGraph={fixedBSelection}/>
+                        
                     </div>
                 </div>
                 <div id="secondChartsContainer" className="flex flex-col md:w-1/5 h-full gap-2">
