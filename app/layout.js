@@ -4,16 +4,6 @@ import localFont from 'next/font/local'
 const monaE = localFont({
   src: [
     {
-      path: './assets/Fonts/MonaSansExpanded-Extralight.woff2',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: './assets/Fonts/MonaSansExpanded-ExtralightItalic.woff2',
-      weight: '200',
-      style: 'italic',
-    },
-    {
       path: './assets/Fonts/MonaSansExpanded-Light.woff2',
       weight: '300',
       style: 'normal',
