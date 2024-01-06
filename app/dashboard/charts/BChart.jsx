@@ -102,7 +102,11 @@ function BChart({ BData, selectedGraph }) {
     }
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Line data={data} options={options} />
+    </Suspense>
+  );
 }
 
 export default BChart;
