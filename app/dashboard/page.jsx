@@ -5,10 +5,10 @@ import dynamic from "next/dynamic";
 import sunData from "@/app/assets/Data/data.json";
 import MainNavbar from "@/components/MainNavbar";
 import ControlPanel from "@/components/ControlPanel";
-const BChart = dynamic(() => import("./charts/BChart"), { ssr: false });
-const SChart = dynamic(() => import("./charts/speedChart"), { ssr: false });
-const TChart = dynamic(() => import("./charts/TemperatureChart"), { ssr: false });
-const DChart = dynamic(() => import("./charts/DChart"), { ssr: false });
+import BChart from "./charts/BChart";
+import SChart from "./charts/speedChart";
+import TChart from "./charts/TemperatureChart";
+import DChart from "./charts/DChart";
 import MRChart from "./charts/MRChart";
 import { BChartOptions } from "@/components/BChartOptions";
 
