@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-import { useEffect, useRef } from "react";
+import { useEffect} from "react";
 import MainNavbar from "@/components/MainNavbar";
 
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.2,
       duration: 2
     });
 
