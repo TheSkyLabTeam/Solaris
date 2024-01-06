@@ -55,7 +55,7 @@ export function BChartOptions({ onBSelectionChange }) {
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-[200px] justify-between border-outline text-onBackground rounded-full"
+            className="w-fit justify-between absolute top-4 right-0 border-outline text-onBackground rounded-full"
           >
             {value
               ? boptions.find((boptions) => boptions.value === value)?.label

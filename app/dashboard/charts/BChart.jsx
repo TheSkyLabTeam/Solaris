@@ -44,9 +44,9 @@ function BChart({BData, selectedGraph}) {
             label: 'B',
             data: BData.map(item => item.B),
             fill: false,
-            backgroundColor: 'rgb(54, 162, 235)',
-            borderColor: 'rgba(54, 162, 235)',
-            borderWidth: .5,
+            backgroundColor: '#557FFF',
+            borderColor: '#557FFF',
+            borderWidth: .8,
             pointRadius: 0,
         }
     };

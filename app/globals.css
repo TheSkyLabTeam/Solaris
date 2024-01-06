@@ -45,7 +45,7 @@ select.rdp-dropdown {
 /*Dashboard*/
 
 .sectionDashboard {
-  @apply flex flex-col w-full md:h-[100vh] bg-black 
+  @apply flex flex-col w-full md:h-[100vh] bg-background 
 }
 
 .principalChartButton {

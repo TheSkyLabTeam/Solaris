@@ -86,7 +86,7 @@ const Page = () => {
         >
           <div
             id="principalChartContainer"
-            className="flex flex-col w-full md:w-4/5 h-full bg-[#27221C] rounded-xl px-4 pt-5 gap-1"
+            className="flex flex-col w-full md:w-4/5 h-full bg-surface rounded-xl px-4 pt-5 gap-1"
           >
             <div
               id="principalChartHeader"
@@ -94,30 +94,30 @@ const Page = () => {
             >
               <div className="flex flex-col md:flex-row principalChartHeaderText w-full justify-between">
                 <div className="chartHeaderText">
-                  <h2 className="text-[#EAE1D9] text-2xl font-medium mb-4">
+                  <h2 className="text-onBackground text-xl font-medium mb-2">
                     Interplanetary Magnetic Field (IMF)
                   </h2>
                   <p
                     id="miniDescriptionPrincipalChart"
-                    className="text-[#9C8F80] text-sm mt-2"
+                    className="text-secondary text-sm"
                   >
                     {" "}
                     The IMF is a vector (
-                    <span className="text-[#36a2eb]">B</span>) that can be
+                    <span className="text-[#557FFF]">B</span>) that can be
                     characterized by three independent components (
-                    <span className="text-[#4bc0c0]">BX</span>,{" "}
-                    <span className="text-[#ffcd56]">BY</span>,{" "}
-                    <span className="text-[#ff6384]">BZ</span>). In the
+                    <span className="text-[#936BFF]">BX</span>,{" "}
+                    <span className="text-[#FFC530]">BY</span>,{" "}
+                    <span className="text-[#FF6384]">BZ</span>). In the
                     Geocentric Solar Magnetospheric (GSM) Coordinate System, the
                     X-axis points from Earth to the Sun. The Y-axis is defined
-                    to be perpendicular to the Earth&apos;s magnetic dipole so
-                    that the X-Z plane contains the Earth&apos;s dipole axis.{" "}
+                    to be perpendicular to the Earth&apos;s magnetic dipole so that
+                    the X-Z plane contains the Earth&apos;s dipole axis.{" "}
                   </p>
                 </div>
-                <BChartOptions onBSelectionChange={handleBSelectionChange} />
               </div>
             </div>
-            <div id="principalChart" className="w-[100%] md:h-4/5">
+            <div id="principalChart" className="w-[100%] md:h-4/5 relative">
+              <BChartOptions onBSelectionChange={handleBSelectionChange} />
               <BChart
                 BData={filtrarPorFecha(sunData, startDate, endDate)}
                 selectedGraph={fixedBSelection}
@@ -129,22 +129,22 @@ const Page = () => {
             className="flex flex-col md:w-1/5 h-full gap-2"
           >
             <div
-              className="flex flex-col w-full h-1/3 bg-[#1F1B16] rounded-xl gap-2"
+              className="flex flex-col w-full h-1/3 bg-surface rounded-xl gap-2"
               id="speedChartContainer"
             >
               <div id="speedChartHeader" className="w-full h-[10%] p-2">
-                <h4 className="text-[#EAE1D9] text-sm">Speed (Km/s)</h4>
+                <h4 className="text-onBackground text-sm">Speed (Km/s)</h4>
               </div>
               <div id="speedChart" className="w-full h-[90%] p-2">
                 <SChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
               </div>
             </div>
             <div
-              className="w-full h-1/3 bg-[#27221C] rounded-xl p-2"
+              className="w-full h-1/3 bg-surface rounded-xl p-2"
               id="temperatureChart"
             >
               <div id="speedChartHeader" className="w-full h-[10%]">
-                <h4 className="text-[#EAE1D9] text-sm">
+                <h4 className="text-onBackground text-sm">
                   Temperature (Kelvin degrees)
                 </h4>
               </div>
@@ -153,11 +153,11 @@ const Page = () => {
               </div>
             </div>
             <div
-              className="w-full h-1/3 bg-[#27221C] rounded-xl p-2"
+              className="w-full h-1/3 bg-surface rounded-xl p-2"
               id="densityChart"
             >
               <div id="speedChartHeader" className="w-full h-[10%]">
-                <h4 className="text-[#EAE1D9] text-sm">Density (n/cc)</h4>
+                <h4 className="text-onBackground text-sm">Density (n/cc)</h4>
               </div>
               <div id="speedChart" className="w-full h-[90%]">
                 <DChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
