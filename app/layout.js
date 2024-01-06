@@ -1,6 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const monaE = localFont({
   src: [
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
       <body className={monaE.className}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
