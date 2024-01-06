@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import MainNavbar from "@/components/MainNavbar";
 import ControlPanel from "@/components/ControlPanel";
 import BChart from "./charts/BChart";
@@ -16,35 +16,34 @@ const Page = () => {
   const [bSelection, setBSelection] = useState("B");
   const [sunData, setSunData] = useState([]);
 
-    useEffect(() => {
-        fetch('/api/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(json => setSunData(json))
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, [startDate, endDate]);
-  
+  // Fetch sunData from API
+  useEffect(() => {
+    fetch("/api/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((json) => setSunData(json))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [startDate, endDate]);
 
-  let fixedBSelection = bSelection.toUpperCase();
-
+  // Handlers for buttons
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };
-
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
-
   const handleBSelectionChange = (value) => {
     setBSelection(value);
   };
+  let fixedBSelection = bSelection.toUpperCase();
 
+  // Filter data by date
   function filtrarPorFecha(datos, fechaInicio, fechaFin) {
     let inicio = new Date(fechaInicio);
     let fin = new Date(fechaFin);
@@ -54,6 +53,7 @@ const Page = () => {
     });
   }
 
+  // Count Trues
   function contarTrues(datos, fechaInicio, fechaFin) {
     let datosFiltrados = filtrarPorFecha(datos, fechaInicio, fechaFin);
 
@@ -68,23 +68,31 @@ const Page = () => {
     return contador;
   }
 
+  // Calculate total Magnetic Reconnection Events
   let TotalMRS = contarTrues(sunData, startDate, endDate);
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/*Navbar*/}
       <MainNavbar />
+
+      {/* First section of the dashboard */}
       <div
         id="firstSectionDashboard"
         className="sectionDashboard pt-16 px-4 md:px-10"
       >
+        {/* Control panel to pick the date range */}
         <ControlPanel
           onStartDateChange={handleStartDateChange}
           onEndDateChange={handleEndDateChange}
         />
+
+        {/* Here is where the principalChart go. It's like a grid */}
         <div
           id="chartsContainer"
           className="flex flex-col md:flex-row w-full md:h-[75vh] mt-10 gap-2"
         >
+          {/* The principal chart container is to content the BChart componente and it's description */}
           <div
             id="principalChartContainer"
             className="flex flex-col w-full md:w-4/5 h-full bg-surface rounded-xl px-4 pt-5 gap-1"
@@ -117,6 +125,8 @@ const Page = () => {
                 </div>
               </div>
             </div>
+
+            {/* Here is where BChart go */}
             <div id="principalChart" className="w-[100%] md:h-4/5 relative">
               <BChartOptions onBSelectionChange={handleBSelectionChange} />
               <BChart
@@ -125,10 +135,12 @@ const Page = () => {
               />
             </div>
           </div>
+          {/* This is te container for the complementary charts as Speed Chart, Temperature Chart and Density Chart */}
           <div
             id="secondChartsContainer"
             className="flex flex-col md:w-1/5 h-full gap-2"
           >
+            {/* Container for the speed chart */}
             <div
               className="flex flex-col w-full h-1/3 bg-surface rounded-xl gap-2"
               id="speedChartContainer"
@@ -140,6 +152,8 @@ const Page = () => {
                 <SChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
               </div>
             </div>
+
+            {/* Container for the temperature chart */}
             <div
               className="w-full h-1/3 bg-surface rounded-xl p-2"
               id="temperatureChart"
@@ -153,6 +167,8 @@ const Page = () => {
                 <TChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
               </div>
             </div>
+
+            {/* Container for the density chart */}
             <div
               className="w-full h-1/3 bg-surface rounded-xl p-2"
               id="densityChart"
@@ -167,6 +183,8 @@ const Page = () => {
           </div>
         </div>
       </div>
+      
+      {/* Here starts the section of the dashboard where the conclusions are */}
       <h3 className="md:relative top-8 left-0 text-4xl md:text-5xl font-semibold text-[#D8D9C5] pt-9 pl-4 md:pl-10">
         Conclutions
       </h3>
