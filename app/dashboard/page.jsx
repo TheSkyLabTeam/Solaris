@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import sunData from "@/app/assets/Data/data.json";
 import MainNavbar from "@/components/MainNavbar";
@@ -97,18 +97,20 @@ const Page = () => {
                     <span className="text-[#FF6384]">BZ</span>). In the
                     Geocentric Solar Magnetospheric (GSM) Coordinate System, the
                     X-axis points from Earth to the Sun. The Y-axis is defined
-                    to be perpendicular to the Earth&apos;s magnetic dipole so that
-                    the X-Z plane contains the Earth&apos;s dipole axis.{" "}
+                    to be perpendicular to the Earth&apos;s magnetic dipole so
+                    that the X-Z plane contains the Earth&apos;s dipole axis.{" "}
                   </p>
                 </div>
               </div>
             </div>
             <div id="principalChart" className="w-[100%] md:h-4/5 relative">
               <BChartOptions onBSelectionChange={handleBSelectionChange} />
-              <BChart
-                BData={filtrarPorFecha(sunData, startDate, endDate)}
-                selectedGraph={fixedBSelection}
-              />
+              <Suspense fallback={<p className="text-white">Loading chart</p>}>
+                <BChart
+                  BData={filtrarPorFecha(sunData, startDate, endDate)}
+                  selectedGraph={fixedBSelection}
+                />
+              </Suspense>
             </div>
           </div>
           <div
