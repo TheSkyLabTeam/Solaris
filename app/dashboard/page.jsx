@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import sunData from "@/app/assets/Data/data.json";
 import MainNavbar from "@/components/MainNavbar";
 import ControlPanel from "@/components/ControlPanel";
-import BChart from "./charts/BChart";
+const BChart = dynamic(() => import("./charts/BChart"), { ssr: false });
 import SChart from "./charts/speedChart";
 import TChart from "./charts/TemperatureChart";
 import DChart from "./charts/DChart";
