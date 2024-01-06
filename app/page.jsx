@@ -1,6 +1,6 @@
 "use client"
 
-import { useTransform, useScroll, motion, useInView} from "framer-motion";
+import { useTransform, useScroll, motion} from "framer-motion";
 import Link from 'next/link'
 import Lenis from '@studio-freight/lenis'
 import { useEffect, useRef } from 'react'
@@ -9,10 +9,6 @@ import MainNavbar from '@/components/MainNavbar'
 export default function Home() {
 
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"]
-  });
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -28,20 +24,17 @@ export default function Home() {
     requestAnimationFrame(raf)
   }, [])
 
-  //Animations
-  const headerWidth = useTransform(scrollYProgress, [0, 0.2], ["100vw", "95vw"]);
-
   return (
     <main className="flex min-h-screen flex-col items-center bg-background">
       <MainNavbar/>
       <section id="headerContainer" className="w-[100vw] h-[100vh] flex justify-center place-content-baseline mb-24">
-        <motion.div id="header" className=" h-[100vh] flex place-items-end px-4 md:px-10 rounded-xl" style={{width: headerWidth}}>
+        <div id="header" className="w-full h-[100vh] flex place-items-end px-4 md:px-10 rounded-xl">
           <div className="headerTitlesContainer z-10">
             <h5 className='relative text-base md:text-[1.5vw] text-[#FFB950] font-normal w-fit md:w-[30vw] md:-mt-10'>The best way to understand the magnetic reconnection of the sun.</h5>
             <h1 className='text-[15vw] md:text-[10vw] font-semibold text-[#FFB950] h-min md:-mt-6'>SOLARIS</h1>
             
           </div>
-        </motion.div>
+        </div>
       </section>
 
       <motion.div className="flex flex-col w-full h-fit md:h-[90vh] bg-black px-8 md:px-16" id="description">
