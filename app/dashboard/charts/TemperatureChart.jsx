@@ -1,5 +1,4 @@
 import { Line } from "react-chartjs-2";
-import { Suspense } from "react";
 import {
   Chart as ChartJs,
   LineElement,
@@ -73,11 +72,7 @@ function TChart({ BData }) {
     }
   };
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Line data={data} options={options} />
-    </Suspense>
-  );
+  return <Line data={data} options={options} />;
 }
 
 export default TChart;
