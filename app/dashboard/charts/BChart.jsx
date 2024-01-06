@@ -48,7 +48,7 @@ function BChart({BData, selectedGraph}) {
             borderColor: '#557FFF',
             borderWidth: .8,
             pointRadius: 0,
-        }
+        },
     };
 
     const data = Array.isArray(BData) ? {
@@ -87,7 +87,7 @@ function BChart({BData, selectedGraph}) {
             legend: {
                 display: true,
             }
-        }
+        },
     }
 
     return(
