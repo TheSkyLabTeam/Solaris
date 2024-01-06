@@ -105,18 +105,10 @@ const Page = () => {
             </div>
             <div id="principalChart" className="w-[100%] md:h-4/5 relative">
               <BChartOptions onBSelectionChange={handleBSelectionChange} />
-              <Suspense
-                fallback={
-                  <p className=" font-extrabold text-6xl text-red-500">
-                    Loading chart
-                  </p>
-                }
-              >
-                <BChart
-                  BData={filtrarPorFecha(sunData, startDate, endDate)}
-                  selectedGraph={fixedBSelection}
-                />
-              </Suspense>
+              <BChart
+                BData={filtrarPorFecha(sunData, startDate, endDate)}
+                selectedGraph={fixedBSelection}
+              />
             </div>
           </div>
           <div
@@ -131,9 +123,7 @@ const Page = () => {
                 <h4 className="text-onBackground text-sm">Speed (Km/s)</h4>
               </div>
               <div id="speedChart" className="w-full h-[90%] p-2">
-                <Suspense fallback={<p>Loading Speed Chart</p>}>
-                  <SChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
-                </Suspense>
+                <SChart BData={filtrarPorFecha(sunData, startDate, endDate)} />
               </div>
             </div>
             <div
