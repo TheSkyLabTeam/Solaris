@@ -8,7 +8,7 @@ import ControlPanel from "@/components/ControlPanel";
 const BChart = dynamic(() => import("./charts/BChart"), { ssr: false });
 const SChart = dynamic(() => import("./charts/speedChart"), { ssr: false });
 const TChart = dynamic(() => import("./charts/TemperatureChart"), { ssr: false });
-import DChart from "./charts/DChart";
+const DChart = dynamic(() => import("./charts/DChart"), { ssr: false });
 import MRChart from "./charts/MRChart";
 import { BChartOptions } from "@/components/BChartOptions";
 
