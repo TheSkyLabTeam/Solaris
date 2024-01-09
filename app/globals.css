@@ -29,6 +29,14 @@ select.rdp-dropdown {
   @apply bg-black p-1 rounded
 }
 
+/* Main Navbar Menu */
+.navbarButton {
+  @apply text-3xl font-semibold mb-4
+}
+
+.navbarLink {
+  @apply px-2
+}
  
 /*Landing styles*/
 

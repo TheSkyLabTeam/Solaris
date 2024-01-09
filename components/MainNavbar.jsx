@@ -15,20 +15,30 @@ const MainNavbar = () => {
       <div className="brandContainer">
         <h4 className="brandSolaris font-semibold text-lg">Solaris</h4>
       </div>
-      <Sheet>
-        <SheetTrigger className="text-2xl">
-          <BsList />
-        </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
-          </SheetHeader>
-        </SheetContent>
-      </Sheet>
+      <div id="linksContainer" className="hidden md:flex">
+        <Link href="/">
+          <h3 className="navbarLink">Home</h3>
+        </Link>
+        <Link href="/dashboard">
+          <h3 className="navbarLink">Dashboard</h3>
+        </Link>
+      </div>
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger className="text-2xl">
+            <BsList />
+          </SheetTrigger>
+          <SheetContent className="text-onBackground">
+            <SheetHeader>
+              <SheetTitle className="text-start">Menu</SheetTitle>
+              <SheetDescription className="pt-4 text-start">
+                <h3 className="navbarButton">Home</h3>
+                <h3 className="navbarButton">Dashboard</h3>
+              </SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
     </div>
   );
 };
